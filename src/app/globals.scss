@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .button-primary {
+    @apply with-focus-ring relative flex items-center justify-center rounded-md border-2 border-transparent bg-cyan-500 p-3 px-4 py-2 text-sm font-medium text-white hover:bg-cyan-600 dark:bg-cyan-700 dark:hover:bg-cyan-800;
+  }
+
+  .button-secondary {
+    @apply with-focus-ring relative flex items-center justify-center rounded-md border-2 border-neutral-500 bg-neutral-100 px-4 py-2 text-sm font-medium text-neutral-600 hover:bg-neutral-200 dark:border-neutral-300 dark:bg-transparent dark:text-neutral-300 dark:hover:border-white dark:hover:bg-neutral-700 dark:hover:text-white;
+  }
+}
+
+@layer utilities {
+  .responsive-content {
+    @apply mx-4 md:mx-8 lg:mx-16 xl:mx-32 2xl:mx-64;
+  }
+
+  .responsive-header {
+    @apply -mx-4 md:-mx-8 lg:-mx-16 xl:-mx-32 2xl:-mx-64;
+
+    > div {
+      @apply px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-64;
+    }
+  }
+
+  .responsive-modal {
+    @apply mx-8 md:mx-16 lg:mx-auto lg:max-w-[50%];
+  }
+
+  .with-focus-ring {
+    @apply border transition-all focus:border-cyan-400 focus:outline-none focus:ring focus:ring-cyan-100 motion-reduce:transition-none dark:focus:border-cyan-500 dark:focus:ring-cyan-300;
+  }
+}
+
+.modal {
+  &--enter {
+    opacity: 0;
+    > div {
+      opacity: 0;
+      transform: translateY(2rem);
+    }
+  }
+
+  &--enter-active {
+    opacity: 1;
+    @media (prefers-reduced-motion: no-preference) {
+      transition: opacity 300ms;
+    }
+    > div {
+      opacity: 1;
+      transform: translateY(0rem);
+      @media (prefers-reduced-motion: no-preference) {
+        transition:
+          opacity 300ms,
+          transform 300ms;
+      }
+    }
+  }
+
+  &--exit {
+    opacity: 1;
+    > div {
+      opacity: 1;
+      transform: translateY(0rem);
+    }
+  }
+
+  &--exit-active {
+    opacity: 0;
+    @media (prefers-reduced-motion: no-preference) {
+      transition: opacity 200ms;
+    }
+    > div {
+      opacity: 0;
+      transform: translateY(2rem);
+      @media (prefers-reduced-motion: no-preference) {
+        transition:
+          opacity 200ms,
+          transform 200ms;
+      }
+    }
+  }
+}

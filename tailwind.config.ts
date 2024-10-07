@@ -9,9 +9,8 @@ const config: Config = {
   darkMode: 'class',
   theme: {
     extend: {
-      colors: {
-        background: 'var(--background)',
-        foreground: 'var(--foreground)',
+      transitionTimingFunction: {
+        bounce: 'cubic-bezier(0.35, 0.12, 0.14, 1.42)',
       },
     },
   },
